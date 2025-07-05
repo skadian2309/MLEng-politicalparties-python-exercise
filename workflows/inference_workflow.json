@@ -1,0 +1,15 @@
+{
+  "name": "mle_sumit_kadian_inference_workflow",
+  "tasks": [
+    {
+      "task_key": "batch_inference",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/sumit.kadian@thoughtworks.com/MLEng-politicalparties-python-exercise/notebooks/mle_sumit_kadian_batch_inference_via_endpoint"
+      },
+      "existing_cluster_id": "0630-163217-5fpx83pi",
+      "timeout_seconds": 1200
+    }
+  ],
+  "email_notifications": {},
+  "timeout_seconds": 1800
+}

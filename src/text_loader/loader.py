@@ -13,17 +13,16 @@ class DataLoader:
 
     def load_data(self):
         """Loads data from a CSV file."""
-        return pd.read_csv(self.filepath)
+        self.data = pd.read_csv(self.filepath)
 
     @staticmethod
     def remove_characters(text: str) -> str:
-        """Remove non-letters from a given string"""
-        remove_chars = string.punctuation
-        translator = str.maketrans('', '', remove_chars)
-        return text.translate(translator)
-
+        text = re.sub(r'[^\w\s]', '', text)   # removes punctuation
+        text = re.sub(r'\d+', '', text)       # removes numbers
+        return text
     def clean_text(self, text: str) -> str:
-        """Keep only retain words in a given string"""
+        text = str(text)  # ensure input is a string
+        text = re.sub(r"http\S+", "", text)  # remove URLs
         text = self.remove_characters(text)
         return text.strip()
 
@@ -42,4 +41,3 @@ class DataLoader:
     def preprocess_parties(self):
         self.data.Party = self.data.Party.apply(self.clean_text)
         return self.label_encoder(self.data.Party.values)
-

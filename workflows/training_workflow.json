@@ -1,0 +1,24 @@
+{
+  "name": "mle_sumit_kadian_training_workflow",
+  "tasks": [
+    {
+      "task_key": "data_preprocessing",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/sumit.kadian@thoughtworks.com/MLEng-politicalparties-python-exercise/notebooks/01_data_preprocessing"
+      },
+      "existing_cluster_id": "0630-163217-5fpx83pi",
+      "timeout_seconds": 1800
+    },
+    {
+      "task_key": "model_training",
+      "depends_on": [{"task_key": "data_preprocessing"}],
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/sumit.kadian@thoughtworks.com/MLEng-politicalparties-python-exercise/notebooks/02_model_training"
+      },
+      "existing_cluster_id": "0630-163217-5fpx83pi",
+      "timeout_seconds": 1800
+    }
+  ],
+  "email_notifications": {},
+  "timeout_seconds": 3600
+}
